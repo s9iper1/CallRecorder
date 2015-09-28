@@ -18,11 +18,12 @@ import com.byteshatf.callrecorder.database.DatabaseHelpers;
 
 public class IncomingCallListener extends PhoneStateListener {
 
-    private CallRecording callRecording = new CallRecording();
+    private CallRecording callRecording;
     private SharedPreferences mSharedPreferences;
     private Helpers mHelpers;
 
     public IncomingCallListener() {
+        callRecording = new CallRecording();
     }
 
     @Override
@@ -35,9 +36,7 @@ public class IncomingCallListener extends PhoneStateListener {
                 }
                 break;
             case TelephonyManager.CALL_STATE_IDLE:
-                if (CallRecording.isRecording) {
                     callRecording.stopRecording();
-                }
                 break;
             case TelephonyManager.CALL_STATE_OFFHOOK:
                     startRecording(AppGlobals.sCurrentNumber);

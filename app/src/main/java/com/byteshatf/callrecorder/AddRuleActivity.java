@@ -238,7 +238,6 @@ public class AddRuleActivity extends AppCompatActivity implements View.OnClickLi
                 }
                 break;
         }
-
     }
 
     class FinalizedContacts extends ArrayAdapter<String> {

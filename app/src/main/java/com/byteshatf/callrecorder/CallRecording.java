@@ -1,23 +1,18 @@
 package com.byteshatf.callrecorder;
 
-import android.content.SharedPreferences;
 import android.media.MediaRecorder;
 import android.util.Log;
-import android.widget.Toast;
 
 import java.io.IOException;
 
 public class CallRecording {
 
-    public static boolean isRecording;
+    public static boolean isRecording = false;
     private MediaRecorder mediaRecorder;
-    private SharedPreferences sharedPreferences;
-    Helpers mHelpers;
 
     public void startRecord() {
-        mHelpers = new Helpers(AppGlobals.getContext());
-        sharedPreferences = mHelpers.getPreferenceManager();
         mediaRecorder = new MediaRecorder();
+        mediaRecorder.reset();
         mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
         mediaRecorder.setAudioEncodingBitRate(96000);
         mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.DEFAULT);
@@ -35,7 +30,7 @@ public class CallRecording {
     }
 
     public void stopRecording() {
-        if (CallRecording.isRecording) {
+         if (CallRecording.isRecording) {
             mediaRecorder.stop();
             mediaRecorder.reset();
             mediaRecorder.release();
