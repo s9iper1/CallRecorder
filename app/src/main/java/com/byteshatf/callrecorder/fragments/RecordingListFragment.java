@@ -136,9 +136,6 @@ public class RecordingListFragment extends android.support.v4.app.Fragment imple
             switch (v.getId()) {
                 case R.id.delete_button:
                     final int position = mRecordList.getPositionForView((View) v.getParent());
-                    System.out.println(mRecordList.getPositionForView((View) v.getParent()));
-                    System.out.println(mRecordList.getItemAtPosition(position));
-                    System.out.println(position);
                     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                     builder.setTitle("Delete");
                     builder.setIcon(android.R.drawable.ic_menu_delete);
